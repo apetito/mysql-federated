@@ -15,3 +15,8 @@ docker network create --driver=bridge --subnet=171.0.0.0/16 --gateway=171.0.0.1 
 ```
 docker-compose up -d
 ```
+4. Dentro da pasta `dump` execute os seguintes comandos para criar o banco com as tabelas:
+```
+mysql -uroot -proot -h171.0.0.20 -e "source loja_1.sql"
+mysql -uroot -proot -h171.0.0.21 -e "source loja_2.sql"
+```
