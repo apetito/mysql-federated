@@ -4,7 +4,7 @@ A idéia desse container é para exemplificar o uso da engine FEDERATED do MySQL
 
 ### Instalação
 
-> Siga esses passos para executar os containers, criar a rede entre eles e o banco dados em cada um
+Siga esses passos para executar os containers, criar a rede entre eles e o banco dados em cada um
 
 1. Clone o repositório
 2. Crie rede dos containers:
