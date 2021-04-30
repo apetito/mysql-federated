@@ -1,0 +1,48 @@
+version: '2.0'
+services:
+    mysql_host_a:
+        container_name: mysql_host_a
+        image: "mysql:5.7"
+        ports:
+            - "3306"
+        networks:
+            mediumnet:
+                aliases:
+                    - local-db-a.com
+                ipv4_address: 171.0.0.20
+        volumes:
+            - mysql_medium_host_a:/var/lib/mysql
+            - ./config/mysqld.cnf:/etc/mysql/mysql.conf.d/custom.mysqld.cnf
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: mysql_host_a
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+    mysql_host_b:
+        container_name: mysql_host_b
+        image: "mysql:5.7"
+        ports:
+            - "3306"
+        networks:
+            mediumnet:
+                aliases:
+                    - local-db-b.com
+                ipv4_address: 171.0.0.21
+        volumes:
+            - mysql_medium_host_b:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: mysql_host_b
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+networks: 
+    mediumnet:
+        external: true
+volumes:
+    mysql_medium_host_a: 
+        driver: local
+    mysql_medium_host_b: 
+        driver: local
+
+
+        
